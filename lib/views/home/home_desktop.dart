@@ -10,10 +10,8 @@ class _HomeDesktop extends StatelessWidget {
     AboutPageView(),
     AboutPageView(),
     AboutPageView(),
-    
   ];
 
- 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -37,7 +35,7 @@ class _HomeDesktop extends StatelessWidget {
                     'Awa Felix - Software Developer',
                     style: GoogleFonts.aBeeZee(
                         fontWeight: FontWeight.bold,
-                        fontSize: SizeConfig().textSize(context, 3)),
+                        fontSize: SizeConfig().textSize(context, 2)),
                   ),
                   Spacer(),
                   Text('Home'),
@@ -62,7 +60,8 @@ class _HomeDesktop extends StatelessWidget {
                   image: AssetImage(
                     'bk2.jpg',
                   ),
-                )),
+                ),
+                ),
               ),
               Container(
                 width: width,
@@ -80,31 +79,35 @@ class _HomeDesktop extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Padding(
-                  padding: EdgeInsets.only(left: McGyver.rsDoubleW(context, 10)),
+                  padding:
+                      EdgeInsets.only(left: McGyver.rsDoubleW(context, 10)),
                   child: Container(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Mobile Developer',
+                          'Awa Felix',
                           style: GoogleFonts.aBeeZee(
-                            color: Colors.white60,
+                              color: Colors.white60,
                               fontWeight: FontWeight.bold,
-                              fontSize: SizeConfig().textSize(context, 5)),
+                              fontSize: SizeConfig().textSize(context, 3)),
                         ),
+                        SizedBox(height: McGyver.rsDoubleH(context, 3)),
                         Text(
-                          '   Data Scientist',
+                          'A Mobile developer, Data scientist, Project Manager and Petroluem Engineer',
                           style: GoogleFonts.aBeeZee(
-                            color: Colors.white60,
+                              color: Colors.white38,
                               fontWeight: FontWeight.bold,
-                              fontSize: SizeConfig().textSize(context, 5)),
+                              fontSize: SizeConfig().textSize(context, 2)),
                         ),
+                        SizedBox(height: McGyver.rsDoubleH(context, 1)),
                         Text(
-                          '       Petroleum Engineer',
+                          'Flutter/Dart, Python, NodeJs, Typescript',
                           style: GoogleFonts.aBeeZee(
-                            color: Colors.white60,
+                              color: Colors.white38,
                               fontWeight: FontWeight.bold,
-                              fontSize: SizeConfig().textSize(context, 5)),
+                              fontSize: SizeConfig().textSize(context, 2)),
                         ),
                       ],
                     ),
@@ -115,27 +118,6 @@ class _HomeDesktop extends StatelessWidget {
           ),
         )
       ],
-    )
-        // ),
-        // bottomNavigationBar: BottomNavigationBar(
-        //   items: const <BottomNavigationBarItem>[
-        //     BottomNavigationBarItem(
-        //       icon: Icon(Icons.account_circle),
-        //       title: Text('About'),
-        //     ),
-        //     BottomNavigationBarItem(
-        //       icon: Icon(Icons.chrome_reader_mode),
-        //       title: Text('Blog'),
-        //     ),
-        //     BottomNavigationBarItem(
-        //       icon: Icon(Icons.mobile_screen_share),
-        //       title: Text('Projects'),
-        //     )
-        //   ],
-        //   currentIndex: _selectedIndex,
-        //   // onTap: (index)=> setState(() => _selectedIndex = index),
-        //   selectedItemColor: Theme.of(context).accentColor,
-        // ),
-        );
+    ));
   }
 }
