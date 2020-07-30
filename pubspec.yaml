@@ -15,6 +15,10 @@ dependencies:
     get_it: ^3.0.3
     equatable: ^1.0.1
     google_fonts:
+    simple_animations: ^2.2.1
+    supercharged:
+    page_transition: ^1.1.6
+
 dev_dependencies:
     flutter_test:
         sdk: flutter
