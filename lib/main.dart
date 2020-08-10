@@ -1,3 +1,6 @@
+import 'package:portfolio/core/services/routes.dart';
+import 'package:portfolio/views/about_page/about_page_view.dart';
+
 import 'core/locator.dart';
 import 'core/providers.dart';
 import 'core/services/navigator_service.dart';
@@ -16,8 +19,13 @@ class MainApplication extends StatelessWidget {
     return MultiProvider(
       providers: ProviderInjector.providers,
       child: MaterialApp(
-        navigatorKey: locator<NavigatorService>().navigatorKey,
-        home: HomeView(),
+        onGenerateRoute: generateRoute,
+        navigatorKey: navigatorKey,
+        routes: {
+          '/about': (context) => AboutPageView(),
+          '/works': (context) => AboutPageView(),
+        },
+        initialRoute: HomeRoute,
       ),
     );
   }

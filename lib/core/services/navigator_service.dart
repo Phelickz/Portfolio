@@ -1,8 +1,9 @@
 import '../../core/base/base_service.dart';
 import 'package:flutter/material.dart';
+  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 
 class NavigatorService extends BaseService {
-  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   Future<T> navigateToPage<T>(MaterialPageRoute<T> pageRoute) async {
     log.i('navigateToPage: pageRoute: ${pageRoute.settings.name}');
