@@ -7,9 +7,11 @@ import 'core/services/navigator_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'views/home/home_view.dart';
+import 'package:flutter_web_ui/ui.dart' as ui;
 
 void main() async {
   await LocatorInjector.setupLocator();
+  await ui.webOnlyInitializePlatform();
   runApp(MainApplication());
 }
 
