@@ -149,12 +149,15 @@ class _HomeDesktop extends StatelessWidget {
                             // SizedBox(width: McGyver.rsDoubleW(context, 10)),
                             Padding(
                               padding: EdgeInsets.symmetric(horizontal: 8.0),
-                              child: Container(
-                                width: McGyver.rsDoubleW(context, 40),
-                                height: McGyver.rsDoubleH(context, 60),
-                                // color: Colors.red,
-                                child: Image.asset(
-                                  'circles.png',
+                              child: FadeIn(
+                                delay: 10,
+                                child: Container(
+                                  width: McGyver.rsDoubleW(context, 40),
+                                  height: McGyver.rsDoubleH(context, 60),
+                                  // color: Colors.red,
+                                  child: Image.asset(
+                                    'circles.png',
+                                  ),
                                 ),
                               ),
                             ),
@@ -233,7 +236,7 @@ class _HomeDesktop extends StatelessWidget {
             ),
             Container(
                 width: width,
-                height: McGyver.rsDoubleH(context, 100),
+                height: McGyver.rsDoubleH(context, 130),
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('footer.png'),
@@ -260,81 +263,404 @@ class _HomeDesktop extends StatelessWidget {
                         ),
                       ),
                       Expanded(
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                              top: McGyver.rsDoubleH(context, 4)),
-                          child: StaggeredGridView.countBuilder(
-                            crossAxisCount: 4,
-                            itemCount: 4,
-                            itemBuilder: (BuildContext context, int index) =>
-                                Container(
-                                  height: 10,
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                      width: 3, color: Color(0xff2f2727))),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                        child: Container(
+                          // color: Colors.blue,
+                          width: width,
+                          height: McGyver.rsDoubleH(context, 120),
+                          child: Column(
+                            children: [
+                              Row(
                                 children: [
                                   Padding(
-                                    padding: EdgeInsets.only(right: 8.0, top: 8.0),
-                                    child: Align(
-                                        alignment: Alignment.topRight,
-                                        child: Container(
-                                            width: 43,
-                                            height: 45,
-                                            child: Image.asset('github.png'))),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: McGyver.rsDoubleW(context, 3),
-                                    ),
-                                    child: Text(
-                                      'Video Chat App',
-                                      style: GoogleFonts.montserrat(
-                                          color: Color(0xffc4c4c4),
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: SizeConfig()
-                                              .textSize(context, 1.8)),
+                                    padding: EdgeInsets.only(
+                                        top: McGyver.rsDoubleH(context, 17)),
+                                    child: Container(
+                                      width: McGyver.rsDoubleW(context, 30),
+                                      height: McGyver.rsDoubleH(context, 36),
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              width: 3,
+                                              color: Color(0xff2f2727))),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                right: 8.0, top: 8.0),
+                                            child: Align(
+                                                alignment: Alignment.topRight,
+                                                child: Container(
+                                                    width: 43,
+                                                    height: 45,
+                                                    child: Image.asset(
+                                                        'github.png'))),
+                                          ),
+                                          SizedBox(
+                                              height: McGyver.rsDoubleH(
+                                                  context, 4)),
+                                          Padding(
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal:
+                                                  McGyver.rsDoubleW(context, 3),
+                                            ),
+                                            child: Text(
+                                              'Video Chat App',
+                                              style: GoogleFonts.montserrat(
+                                                  color: Color(0xffc4c4c4),
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: SizeConfig()
+                                                      .textSize(context, 1.8)),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                              height: McGyver.rsDoubleH(
+                                                  context, 3)),
+                                          Padding(
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal:
+                                                  McGyver.rsDoubleW(context, 3),
+                                            ),
+                                            child: Text(
+                                              'A mobile application for video calling and chatting with people',
+                                              style: GoogleFonts.montserrat(
+                                                  color: Color(0xffc4c4c4),
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: SizeConfig()
+                                                      .textSize(context, 1.4)),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                              height: McGyver.rsDoubleH(
+                                                  context, 3)),
+                                          Padding(
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal:
+                                                  McGyver.rsDoubleW(context, 3),
+                                            ),
+                                            child: Align(
+                                              alignment: Alignment.bottomLeft,
+                                              child: Text(
+                                                'Tools: Flutter/Dart',
+                                                style: GoogleFonts.montserrat(
+                                                    color: Color(0xffc4c4c4),
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: SizeConfig()
+                                                        .textSize(
+                                                            context, 1.4)),
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
-                                      height: McGyver.rsDoubleH(context, 3)),
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: McGyver.rsDoubleW(context, 3),
-                                    ),
-                                    child: Text(
-                                      'A mobile application for video calling and chatting with people',
-                                      style: GoogleFonts.montserrat(
-                                          color: Color(0xffc4c4c4),
-                                          fontWeight: FontWeight.w400,
-                                          fontSize: SizeConfig()
-                                              .textSize(context, 1.4)),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                      height: McGyver.rsDoubleH(context, 3)),
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: McGyver.rsDoubleW(context, 3),
-                                    ),
-                                    child: Text(
-                                      'Flutter/Dart',
-                                      style: GoogleFonts.montserrat(
-                                          color: Color(0xffc4c4c4),
-                                          fontWeight: FontWeight.w400,
-                                          fontSize: SizeConfig()
-                                              .textSize(context, 1.4)),
+                                      width: McGyver.rsDoubleW(context, 11)),
+                                  Container(
+                                    width: McGyver.rsDoubleW(context, 30),
+                                    height: McGyver.rsDoubleH(context, 36),
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            width: 3,
+                                            color: Color(0xff331818))),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                              right: 8.0, top: 8.0),
+                                          child: Align(
+                                              alignment: Alignment.topRight,
+                                              child: Container(
+                                                  width: 43,
+                                                  height: 45,
+                                                  child: Image.asset(
+                                                      'github.png'))),
+                                        ),
+                                        SizedBox(
+                                            height:
+                                                McGyver.rsDoubleH(context, 4)),
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                McGyver.rsDoubleW(context, 3),
+                                          ),
+                                          child: Text(
+                                            'Video Chat App',
+                                            style: GoogleFonts.montserrat(
+                                                color: Color(0xffc4c4c4),
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: SizeConfig()
+                                                    .textSize(context, 1.8)),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                            height:
+                                                McGyver.rsDoubleH(context, 3)),
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                McGyver.rsDoubleW(context, 3),
+                                          ),
+                                          child: Text(
+                                            'A mobile application for video calling and chatting with people',
+                                            style: GoogleFonts.montserrat(
+                                                color: Color(0xffc4c4c4),
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: SizeConfig()
+                                                    .textSize(context, 1.4)),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                            height:
+                                                McGyver.rsDoubleH(context, 3)),
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                McGyver.rsDoubleW(context, 3),
+                                          ),
+                                          child: Align(
+                                            alignment: Alignment.bottomLeft,
+                                            child: Text(
+                                              'Tools: Flutter/Dart',
+                                              style: GoogleFonts.montserrat(
+                                                  color: Color(0xffc4c4c4),
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: SizeConfig()
+                                                      .textSize(context, 1.4)),
+                                            ),
+                                          ),
+                                        )
+                                      ],
                                     ),
                                   )
                                 ],
                               ),
-                            ),
-                            staggeredTileBuilder: (int index) =>
-                                new StaggeredTile.count(
-                                    2, index.isEven ? 2 : 1),
-                            mainAxisSpacing: 54.0,
-                            crossAxisSpacing: 90.0,
+                              Row(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                        left: McGyver.rsDoubleH(context, 8),
+                                        top: McGyver.rsDoubleH(context, 14)),
+                                    child: Container(
+                                      width: McGyver.rsDoubleW(context, 30),
+                                      height: McGyver.rsDoubleH(context, 36),
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              width: 2,
+                                              color: Color(0xffC4C4C4))),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                right: 8.0, top: 8.0),
+                                            child: Align(
+                                                alignment: Alignment.topRight,
+                                                child: Container(
+                                                    width: 43,
+                                                    height: 45,
+                                                    child: Image.asset(
+                                                        'github.png'))),
+                                          ),
+                                          SizedBox(
+                                              height: McGyver.rsDoubleH(
+                                                  context, 4)),
+                                          Padding(
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal:
+                                                  McGyver.rsDoubleW(context, 3),
+                                            ),
+                                            child: Text(
+                                              'Video Chat App',
+                                              style: GoogleFonts.montserrat(
+                                                  color: Color(0xffc4c4c4),
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: SizeConfig()
+                                                      .textSize(context, 1.8)),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                              height: McGyver.rsDoubleH(
+                                                  context, 3)),
+                                          Padding(
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal:
+                                                  McGyver.rsDoubleW(context, 3),
+                                            ),
+                                            child: Text(
+                                              'A mobile application for video calling and chatting with people',
+                                              style: GoogleFonts.montserrat(
+                                                  color: Color(0xffc4c4c4),
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: SizeConfig()
+                                                      .textSize(context, 1.4)),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                              height: McGyver.rsDoubleH(
+                                                  context, 3)),
+                                          Padding(
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal:
+                                                  McGyver.rsDoubleW(context, 3),
+                                            ),
+                                            child: Align(
+                                              alignment: Alignment.bottomLeft,
+                                              child: Text(
+                                                'Tools: Flutter/Dart',
+                                                style: GoogleFonts.montserrat(
+                                                    color: Color(0xffc4c4c4),
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: SizeConfig()
+                                                        .textSize(
+                                                            context, 1.4)),
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                      width: McGyver.rsDoubleW(context, 17)),
+                                  Container(
+                                    width: McGyver.rsDoubleW(context, 30),
+                                    height: McGyver.rsDoubleH(context, 36),
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            width: 3,
+                                            color: Color(0xffBA6969))),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                              right: 8.0, top: 8.0),
+                                          child: Align(
+                                              alignment: Alignment.topRight,
+                                              child: Container(
+                                                  width: 43,
+                                                  height: 45,
+                                                  child: Image.asset(
+                                                      'github.png'))),
+                                        ),
+                                        SizedBox(
+                                            height:
+                                                McGyver.rsDoubleH(context, 4)),
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                McGyver.rsDoubleW(context, 3),
+                                          ),
+                                          child: Text(
+                                            'Video Chat App',
+                                            style: GoogleFonts.montserrat(
+                                                color: Color(0xffc4c4c4),
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: SizeConfig()
+                                                    .textSize(context, 1.8)),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                            height:
+                                                McGyver.rsDoubleH(context, 3)),
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                McGyver.rsDoubleW(context, 3),
+                                          ),
+                                          child: Text(
+                                            'A mobile application for video calling and chatting with people',
+                                            style: GoogleFonts.montserrat(
+                                                color: Color(0xffc4c4c4),
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: SizeConfig()
+                                                    .textSize(context, 1.4)),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                            height:
+                                                McGyver.rsDoubleH(context, 3)),
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                McGyver.rsDoubleW(context, 3),
+                                          ),
+                                          child: Align(
+                                            alignment: Alignment.bottomLeft,
+                                            child: Text(
+                                              'Tools: Flutter/Dart',
+                                              style: GoogleFonts.montserrat(
+                                                  color: Color(0xffc4c4c4),
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: SizeConfig()
+                                                      .textSize(context, 1.4)),
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                              SizedBox(height: McGyver.rsDoubleH(context, 6)),
+                              Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                      bottom: McGyver.rsDoubleH(context, 3)),
+                                  child: FadeIn(
+                                    delay: 13,
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                            width:
+                                                McGyver.rsDoubleW(context, 8),
+                                            height:
+                                                McGyver.rsDoubleH(context, 4),
+                                            child:
+                                                Image.asset(Assets.facebook)),
+                                        Container(
+                                            width:
+                                                McGyver.rsDoubleW(context, 8),
+                                            height:
+                                                McGyver.rsDoubleH(context, 4),
+                                            child: Image.asset(
+                                                Assets.medium_light)),
+                                        Container(
+                                            width:
+                                                McGyver.rsDoubleW(context, 8),
+                                            height:
+                                                McGyver.rsDoubleH(context, 4),
+                                            child: Image.asset(Assets.github)),
+                                        Container(
+                                            width:
+                                                McGyver.rsDoubleW(context, 8),
+                                            height:
+                                                McGyver.rsDoubleH(context, 4),
+                                            child:
+                                                Image.asset(Assets.linkedin)),
+                                        Container(
+                                            width:
+                                                McGyver.rsDoubleW(context, 8),
+                                            height:
+                                                McGyver.rsDoubleH(context, 4),
+                                            child: Image.asset(Assets.twitter))
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
                           ),
                         ),
                       ),
