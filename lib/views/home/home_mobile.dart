@@ -71,6 +71,12 @@ class _HomeMobile extends StatelessWidget {
                                       'homeIcon.png',
                                     )),
                                 Spacer(),
+                                IconButton(
+                                  icon: Icon(Icons.menu),
+                                  onPressed: (){},
+                                  color: backgroundRed,
+                                  iconSize: 50,
+                                )
                               ],
                             ),
                           ),
