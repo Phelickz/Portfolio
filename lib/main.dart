@@ -11,7 +11,7 @@ import 'package:flutter_web_ui/ui.dart' as ui;
 
 void main() async {
   await LocatorInjector.setupLocator();
-  await ui.webOnlyInitializePlatform();
+  // await ui.webOnlyInitializePlatform();
   runApp(MainApplication());
 }
 

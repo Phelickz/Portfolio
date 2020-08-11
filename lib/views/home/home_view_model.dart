@@ -9,10 +9,17 @@ class HomeViewModel extends BaseViewModel {
 
   bool get menuActive => _menuActive;
 
-  void setBool(){
-    _menuActive = ! _menuActive;
+  bool _splashScreen = true;
+
+  bool get splash => _splashScreen;
+
+  void setBool(bool scrolled){
+    _menuActive = scrolled;
     notifyListeners();
   }
 
-
+  void setSplash(bool splash){
+    _splashScreen = splash;
+    notifyListeners();
+  }
 }

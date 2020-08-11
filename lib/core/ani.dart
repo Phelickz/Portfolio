@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/theme/colors.dart';
 import 'package:simple_animations/simple_animations.dart';
 
 import 'package:supercharged/supercharged.dart';
@@ -9,7 +10,7 @@ class Box extends StatelessWidget {
   static final boxDecoration = BoxDecoration(
     // color: Colors.purple[900],
       gradient: LinearGradient(colors: [
-        Colors.purple[900],
+        backgroundBlack,
         Colors.black
       ]),
       borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -32,7 +33,7 @@ class Box extends StatelessWidget {
         return PlayAnimation<double>(
           duration: 4200.milliseconds,
           delay: 1000.milliseconds,
-          tween: 2.0.tweenTo(300.0),
+          tween: 2.0.tweenTo(600.0),
           builder: (context, child, width) {
             return Container(
               decoration: boxDecoration,
@@ -68,7 +69,7 @@ class TypewriterText extends StatelessWidget {
         tween: 0.tweenTo(text.length),
         builder: (context, child, textLength) {
           return Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(text.substring(0, textLength), style: textStyle ?? TEXT_STYLE),
               _blinkingCursor()

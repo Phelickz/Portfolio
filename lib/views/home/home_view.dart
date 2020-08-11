@@ -1,11 +1,15 @@
 library home_view;
 
+import 'dart:async';
+
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:portfolio/core/ani.dart';
 import 'package:portfolio/core/animation.dart';
+import 'package:portfolio/core/services/config.dart';
 import 'package:portfolio/core/services/res.dart';
 import 'package:portfolio/core/services/res2.dart';
 import 'package:portfolio/core/services/routes.dart';
@@ -17,6 +21,8 @@ import 'package:provider_architecture/provider_architecture.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';
 import 'home_view_model.dart';
+import 'package:http/http.dart' as http;
+import 'dart:html' as html;
 
 part 'home_mobile.dart';
 part 'home_tablet.dart';
@@ -27,17 +33,19 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     HomeViewModel viewModel = HomeViewModel();
     return ViewModelProvider<HomeViewModel>.withConsumer(
-      viewModel: viewModel,
-      onModelReady: (viewModel) {
-        // Do something once your viewModel is initialized
-      },
-      builder: (context, viewModel, child) {
-        return ScreenTypeLayout(
-          mobile: _HomeMobile(viewModel),
-          desktop: _HomeDesktop(viewModel),
-          tablet: _HomeTablet(viewModel),  
-        );
-      }
-    );
+        viewModel: viewModel,
+        onModelReady: (viewModel) {
+          // Do something once your viewModel is initialized
+          Timer(Duration(seconds: 8), () {
+            viewModel.setSplash(false);
+          });
+        },
+        builder: (context, viewModel, child) {
+          return ScreenTypeLayout(
+            mobile: _HomeMobile(viewModel),
+            desktop: _HomeDesktop(viewModel),
+            tablet: _HomeTablet(viewModel),
+          );
+        });
   }
 }

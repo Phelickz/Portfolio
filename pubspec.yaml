@@ -22,10 +22,14 @@ dependencies:
     flutter_staggered_grid_view: ^0.3.2
     flutter_web: any
     flutter_web_ui: any
+    animated_text_kit: ^2.2.0
+    http:
 
 dev_dependencies:
+    flutter_test:
+        sdk: flutter
     # Enables the `pub run build_runner` command
-    build_runner: 
+    build_runner:
   # Includes the JavaScript compilers
     build_web_compilers: ^2.11.0
 
