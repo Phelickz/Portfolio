@@ -24,6 +24,11 @@ dependencies:
     flutter_web_ui: any
     animated_text_kit: ^2.2.0
     http:
+    url_launcher:
+    url_launcher_web: ^0.1.0
+    fluro: ^1.6.3
+    carousel_slider: ^2.2.1
+
 
 dev_dependencies:
     flutter_test:

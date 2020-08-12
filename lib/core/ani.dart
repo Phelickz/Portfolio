@@ -9,10 +9,10 @@ class Box extends StatelessWidget {
   final TextStyle textStyle;
   static final boxDecoration = BoxDecoration(
     // color: Colors.purple[900],
-      gradient: LinearGradient(colors: [
-        backgroundBlack,
-        Colors.black
-      ]),
+      // gradient: LinearGradient(colors: [
+      //   backgroundBlack,
+      //   Colors.transparent
+      // ]),
       borderRadius: BorderRadius.all(Radius.circular(10)),
       boxShadow: [
         BoxShadow(

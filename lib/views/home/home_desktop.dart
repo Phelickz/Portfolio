@@ -8,6 +8,28 @@ class _HomeDesktop extends StatelessWidget {
   final dataKey2 = new GlobalKey();
   final dataKey3 = new GlobalKey();
 
+  final Uri _emailLaunchUri = Uri(
+      scheme: 'mailto',
+      path: 'felixhope30@gmail.com',
+      queryParameters: {'subject': 'Looking to Hire you'});
+
+  Future<void> _launchInBrowser(String url) async {
+    print('tap');
+    bool launchw = await canLaunch(_emailLaunchUri.toString());
+    print(launchw);
+    if (launchw) {
+      print('tap');
+      await launch(
+        url,
+        forceSafariVC: false,
+        forceWebView: false,
+        headers: <String, String>{'my_header_key': 'my_header_value'},
+      );
+    } else {
+      print('Could not launch $url');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -19,7 +41,7 @@ class _HomeDesktop extends StatelessWidget {
             backgroundColor: backgroundRed,
             child: Icon(
               Icons.arrow_upward,
-              color: backgroundBlack,
+              color: Colors.white,
             ),
             onPressed: () => Scrollable.ensureVisible(
                   dataKey2.currentContext,
@@ -51,8 +73,7 @@ class _HomeDesktop extends StatelessWidget {
                         Container(
                             width: width,
                             height: height,
-                            child: Image.asset('backgroundPhoto.png',
-                                fit: BoxFit.cover)),
+                            color: backgroundBlack),
                         Align(
                           alignment: Alignment.topLeft,
                           child: Padding(
@@ -78,7 +99,7 @@ class _HomeDesktop extends StatelessWidget {
                                   onPressed: () {},
                                   child: Text(
                                     'Home',
-                                    style: GoogleFonts.lobster(
+                                    style: GoogleFonts.openSans(
                                       color: headerTextColor,
                                       fontSize:
                                           SizeConfig().textSize(context, 1.8),
@@ -101,7 +122,7 @@ class _HomeDesktop extends StatelessWidget {
                                   },
                                   child: Text(
                                     'About',
-                                    style: GoogleFonts.lobster(
+                                    style: GoogleFonts.openSans(
                                       color: headerTextColor,
                                       fontSize:
                                           SizeConfig().textSize(context, 1.8),
@@ -124,7 +145,7 @@ class _HomeDesktop extends StatelessWidget {
                                   },
                                   child: Text(
                                     'Works',
-                                    style: GoogleFonts.lobster(
+                                    style: GoogleFonts.openSans(
                                       color: headerTextColor,
                                       fontSize:
                                           SizeConfig().textSize(context, 1.8),
@@ -159,7 +180,7 @@ class _HomeDesktop extends StatelessWidget {
                                             children: [
                                               Text(
                                                 'Hi,',
-                                                style: GoogleFonts.lobster(
+                                                style: GoogleFonts.openSans(
                                                   color: headerTextColor,
                                                   fontSize: SizeConfig()
                                                       .textSize(context, 3),
@@ -169,8 +190,8 @@ class _HomeDesktop extends StatelessWidget {
                                                 delay: 2,
                                                 child: Box(
                                                   text: "I'm Awa Felix",
-                                                  textStyle:
-                                                      GoogleFonts.lobster(
+                                                  textStyle: GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w500,
                                                     color: headerTextColor,
                                                     fontSize: SizeConfig()
                                                         .textSize(context, 4),
@@ -185,17 +206,21 @@ class _HomeDesktop extends StatelessWidget {
                                               //         .textSize(context, 4),
                                               //   ),
                                               // ),
-                                              Opacity(
-                                                opacity: 0.5,
-                                                child: Text(
-                                                  'Web developer / mobile developer / desktop developer / Data Scientist',
-                                                  style: GoogleFonts.lobster(
-                                                      color: Color(0xffE5E5E5),
-                                                      fontSize: SizeConfig()
-                                                          .textSize(
-                                                              context, 1.5),
-                                                      fontWeight:
-                                                          FontWeight.w400),
+                                              FadeIn(
+                                                delay: 4,
+                                                child: Opacity(
+                                                  opacity: 0.5,
+                                                  child: Text(
+                                                    'Web developer / mobile developer / desktop developer / Data Scientist',
+                                                    style: GoogleFonts.roboto(
+                                                        color:
+                                                            Color(0xffE5E5E5),
+                                                        fontSize: SizeConfig()
+                                                            .textSize(
+                                                                context, 1.5),
+                                                        fontWeight:
+                                                            FontWeight.w400),
+                                                  ),
                                                 ),
                                               ),
                                               SizedBox(
@@ -246,7 +271,13 @@ class _HomeDesktop extends StatelessWidget {
                                                       context, 12),
                                                   height: McGyver.rsDoubleH(
                                                       context, 8),
-                                                  onPressed: () {},
+                                                  onPressed: () {
+                                                    print('tap');
+                                                    _launchInBrowser(
+                                                        'https://www.cylog.org/headers/');
+                                                    launch(_emailLaunchUri
+                                                        .toString());
+                                                  },
                                                   shape: RoundedRectangleBorder(
                                                     side: BorderSide(
                                                       width: 4,
@@ -319,7 +350,7 @@ class _HomeDesktop extends StatelessWidget {
                                     children: [
                                       Text(
                                         'About',
-                                        style: GoogleFonts.lobster(
+                                        style: GoogleFonts.montserrat(
                                           color: headerTextColor,
                                           fontSize: SizeConfig()
                                               .textSize(context, 2.4),
@@ -353,28 +384,27 @@ class _HomeDesktop extends StatelessWidget {
                               ),
                             )),
                             SizedBox(width: McGyver.rsDoubleW(context, 15)),
-                            Container(
-                                height: McGyver.rsDoubleH(context, 50),
-                                child: Image.asset('me.png'))
+                            FadeIn(
+                              delay: 4,
+                              child: Container(
+                                  height: McGyver.rsDoubleH(context, 50),
+                                  child: Image.asset('me.png')),
+                            )
                           ],
                         ),
                       ),
                     ),
                   ),
                   Container(
-                      key: dataKey3,
-                      width: width,
-                      height: McGyver.rsDoubleH(context, 130),
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('footer.png'),
-                          fit: BoxFit.cover,
-                        ),
+                    key: dataKey3,
+                    width: width,
+                    height: McGyver.rsDoubleH(context, 100),
+                    color: backgroundBlack,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: McGyver.rsDoubleW(context, 4),
                       ),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: McGyver.rsDoubleW(context, 4),
-                        ),
+                      child: SingleChildScrollView(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -384,509 +414,94 @@ class _HomeDesktop extends StatelessWidget {
                               ),
                               child: Text(
                                 'Selected Projects',
-                                style: GoogleFonts.lobster(
+                                style: GoogleFonts.montserrat(
                                   color: headerTextColor,
                                   fontSize: SizeConfig().textSize(context, 2.4),
                                 ),
                               ),
                             ),
-                            Expanded(
-                              child: Container(
-                                // color: Colors.blue,
-                                width: width,
-                                height: McGyver.rsDoubleH(context, 120),
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                              top: McGyver.rsDoubleH(
-                                                  context, 17)),
-                                          child: Container(
+                            Container(
+                              // color: Colors.blue,
+                              width: width,
+                              height: McGyver.rsDoubleH(context, 70),
+                              child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: McGyver.rsDoubleW(context, 10),
+                                    vertical: McGyver.rsDoubleW(context, 3),
+                                  ),
+                                  child: CarouselWithIndicatorDemo()),
+                            ),
+                            Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                    bottom: McGyver.rsDoubleH(context, 3)),
+                                child: FadeIn(
+                                  delay: 13,
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      FlatButton.icon(
+                                        label: Text('Medium'),
+                                        onPressed: () => html.window.open(
+                                            Constants.PROFILE_MEDIUM,
+                                            'felixhope'),
+                                        icon: Container(
                                             width:
-                                                McGyver.rsDoubleW(context, 30),
+                                                McGyver.rsDoubleW(context, 4),
                                             height:
-                                                McGyver.rsDoubleH(context, 36),
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    width: 3,
-                                                    color: Color(0xff2f2727))),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsets.only(
-                                                      right: 8.0, top: 8.0),
-                                                  child: Align(
-                                                      alignment:
-                                                          Alignment.topRight,
-                                                      child: Container(
-                                                          width: 43,
-                                                          height: 45,
-                                                          child: Image.asset(
-                                                              'github.png'))),
-                                                ),
-                                                SizedBox(
-                                                    height: McGyver.rsDoubleH(
-                                                        context, 4)),
-                                                Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                    horizontal:
-                                                        McGyver.rsDoubleW(
-                                                            context, 3),
-                                                  ),
-                                                  child: Text(
-                                                    'Video Chat App',
-                                                    style: GoogleFonts.montserrat(
-                                                        color:
-                                                            Color(0xffc4c4c4),
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontSize: SizeConfig()
-                                                            .textSize(
-                                                                context, 1.8)),
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                    height: McGyver.rsDoubleH(
-                                                        context, 3)),
-                                                Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                    horizontal:
-                                                        McGyver.rsDoubleW(
-                                                            context, 3),
-                                                  ),
-                                                  child: Text(
-                                                    'A mobile application for video calling and chatting with people',
-                                                    style: GoogleFonts.montserrat(
-                                                        color:
-                                                            Color(0xffc4c4c4),
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        fontSize: SizeConfig()
-                                                            .textSize(
-                                                                context, 1.4)),
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                    height: McGyver.rsDoubleH(
-                                                        context, 3)),
-                                                Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                    horizontal:
-                                                        McGyver.rsDoubleW(
-                                                            context, 3),
-                                                  ),
-                                                  child: Align(
-                                                    alignment:
-                                                        Alignment.bottomLeft,
-                                                    child: Text(
-                                                      'Tools: Flutter/Dart',
-                                                      style: GoogleFonts
-                                                          .montserrat(
-                                                              color: Color(
-                                                                  0xffc4c4c4),
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w400,
-                                                              fontSize:
-                                                                  SizeConfig()
-                                                                      .textSize(
-                                                                          context,
-                                                                          1.4)),
-                                                    ),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                            width:
-                                                McGyver.rsDoubleW(context, 11)),
-                                        Container(
-                                          width: McGyver.rsDoubleW(context, 30),
-                                          height:
-                                              McGyver.rsDoubleH(context, 36),
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  width: 3,
-                                                  color: Color(0xff331818))),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                    right: 8.0, top: 8.0),
-                                                child: Align(
-                                                    alignment:
-                                                        Alignment.topRight,
-                                                    child: Container(
-                                                        width: 43,
-                                                        height: 45,
-                                                        child: Image.asset(
-                                                            'github.png'))),
-                                              ),
-                                              SizedBox(
-                                                  height: McGyver.rsDoubleH(
-                                                      context, 4)),
-                                              Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                  horizontal: McGyver.rsDoubleW(
-                                                      context, 3),
-                                                ),
-                                                child: Text(
-                                                  'Video Chat App',
-                                                  style: GoogleFonts.montserrat(
-                                                      color: Color(0xffc4c4c4),
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: SizeConfig()
-                                                          .textSize(
-                                                              context, 1.8)),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                  height: McGyver.rsDoubleH(
-                                                      context, 3)),
-                                              Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                  horizontal: McGyver.rsDoubleW(
-                                                      context, 3),
-                                                ),
-                                                child: Text(
-                                                  'A mobile application for video calling and chatting with people',
-                                                  style: GoogleFonts.montserrat(
-                                                      color: Color(0xffc4c4c4),
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      fontSize: SizeConfig()
-                                                          .textSize(
-                                                              context, 1.4)),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                  height: McGyver.rsDoubleH(
-                                                      context, 3)),
-                                              Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                  horizontal: McGyver.rsDoubleW(
-                                                      context, 3),
-                                                ),
-                                                child: Align(
-                                                  alignment:
-                                                      Alignment.bottomLeft,
-                                                  child: Text(
-                                                    'Tools: Flutter/Dart',
-                                                    style: GoogleFonts.montserrat(
-                                                        color:
-                                                            Color(0xffc4c4c4),
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        fontSize: SizeConfig()
-                                                            .textSize(
-                                                                context, 1.4)),
-                                                  ),
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                              left:
-                                                  McGyver.rsDoubleH(context, 8),
-                                              top: McGyver.rsDoubleH(
-                                                  context, 14)),
-                                          child: Container(
-                                            width:
-                                                McGyver.rsDoubleW(context, 30),
-                                            height:
-                                                McGyver.rsDoubleH(context, 36),
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    width: 2,
-                                                    color: Color(0xffC4C4C4))),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsets.only(
-                                                      right: 8.0, top: 8.0),
-                                                  child: Align(
-                                                      alignment:
-                                                          Alignment.topRight,
-                                                      child: Container(
-                                                          width: 43,
-                                                          height: 45,
-                                                          child: Image.asset(
-                                                              'github.png'))),
-                                                ),
-                                                SizedBox(
-                                                    height: McGyver.rsDoubleH(
-                                                        context, 4)),
-                                                Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                    horizontal:
-                                                        McGyver.rsDoubleW(
-                                                            context, 3),
-                                                  ),
-                                                  child: Text(
-                                                    'Video Chat App',
-                                                    style: GoogleFonts.montserrat(
-                                                        color:
-                                                            Color(0xffc4c4c4),
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontSize: SizeConfig()
-                                                            .textSize(
-                                                                context, 1.8)),
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                    height: McGyver.rsDoubleH(
-                                                        context, 3)),
-                                                Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                    horizontal:
-                                                        McGyver.rsDoubleW(
-                                                            context, 3),
-                                                  ),
-                                                  child: Text(
-                                                    'A mobile application for video calling and chatting with people',
-                                                    style: GoogleFonts.montserrat(
-                                                        color:
-                                                            Color(0xffc4c4c4),
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        fontSize: SizeConfig()
-                                                            .textSize(
-                                                                context, 1.4)),
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                    height: McGyver.rsDoubleH(
-                                                        context, 3)),
-                                                Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                    horizontal:
-                                                        McGyver.rsDoubleW(
-                                                            context, 3),
-                                                  ),
-                                                  child: Align(
-                                                    alignment:
-                                                        Alignment.bottomLeft,
-                                                    child: Text(
-                                                      'Tools: Flutter/Dart',
-                                                      style: GoogleFonts
-                                                          .montserrat(
-                                                              color: Color(
-                                                                  0xffc4c4c4),
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w400,
-                                                              fontSize:
-                                                                  SizeConfig()
-                                                                      .textSize(
-                                                                          context,
-                                                                          1.4)),
-                                                    ),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                            width:
-                                                McGyver.rsDoubleW(context, 17)),
-                                        Container(
-                                          width: McGyver.rsDoubleW(context, 30),
-                                          height:
-                                              McGyver.rsDoubleH(context, 36),
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  width: 3,
-                                                  color: Color(0xffBA6969))),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                    right: 8.0, top: 8.0),
-                                                child: Align(
-                                                    alignment:
-                                                        Alignment.topRight,
-                                                    child: Container(
-                                                        width: 43,
-                                                        height: 45,
-                                                        child: Image.asset(
-                                                            'github.png'))),
-                                              ),
-                                              SizedBox(
-                                                  height: McGyver.rsDoubleH(
-                                                      context, 4)),
-                                              Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                  horizontal: McGyver.rsDoubleW(
-                                                      context, 3),
-                                                ),
-                                                child: Text(
-                                                  'Video Chat App',
-                                                  style: GoogleFonts.montserrat(
-                                                      color: Color(0xffc4c4c4),
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: SizeConfig()
-                                                          .textSize(
-                                                              context, 1.8)),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                  height: McGyver.rsDoubleH(
-                                                      context, 3)),
-                                              Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                  horizontal: McGyver.rsDoubleW(
-                                                      context, 3),
-                                                ),
-                                                child: Text(
-                                                  'A mobile application for video calling and chatting with people',
-                                                  style: GoogleFonts.montserrat(
-                                                      color: Color(0xffc4c4c4),
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      fontSize: SizeConfig()
-                                                          .textSize(
-                                                              context, 1.4)),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                  height: McGyver.rsDoubleH(
-                                                      context, 3)),
-                                              Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                  horizontal: McGyver.rsDoubleW(
-                                                      context, 3),
-                                                ),
-                                                child: Align(
-                                                  alignment:
-                                                      Alignment.bottomLeft,
-                                                  child: Text(
-                                                    'Tools: Flutter/Dart',
-                                                    style: GoogleFonts.montserrat(
-                                                        color:
-                                                            Color(0xffc4c4c4),
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        fontSize: SizeConfig()
-                                                            .textSize(
-                                                                context, 1.4)),
-                                                  ),
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                    SizedBox(
-                                        height: McGyver.rsDoubleH(context, 6)),
-                                    Align(
-                                      alignment: Alignment.bottomCenter,
-                                      child: Padding(
-                                        padding: EdgeInsets.only(
-                                            bottom:
-                                                McGyver.rsDoubleH(context, 3)),
-                                        child: FadeIn(
-                                          delay: 13,
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              FlatButton.icon(
-                                                label: Text('Medium'),
-                                                onPressed: () => html.window
-                                                    .open(
-                                                        Constants
-                                                            .PROFILE_MEDIUM,
-                                                        'felixhope'),
-                                                icon: Container(
-                                                    width: McGyver.rsDoubleW(
-                                                        context, 4),
-                                                    height: McGyver.rsDoubleH(
-                                                        context, 4),
-                                                    child: Image.asset(
-                                                        Assets.medium_light)),
-                                              ),
-                                              FlatButton.icon(
-                                                label: Text('Github'),
-                                                onPressed: () => html.window
-                                                    .open(
-                                                        Constants
-                                                            .PROFILE_GITHUB,
-                                                        'Phelickz'),
-                                                icon: Container(
-                                                    width: McGyver.rsDoubleW(
-                                                        context, 8),
-                                                    height: McGyver.rsDoubleH(
-                                                        context, 4),
-                                                    child: Image.asset(
-                                                        Assets.github)),
-                                              ),
-                                              FlatButton.icon(
-                                                label: Text(''),
-                                                onPressed: () => html.window
-                                                    .open(
-                                                        Constants
-                                                            .PROFILE_LINKEDIN,
-                                                        'Felix-awa'),
-                                                icon: Container(
-                                                    width: McGyver.rsDoubleW(
-                                                        context, 8),
-                                                    height: McGyver.rsDoubleH(
-                                                        context, 4),
-                                                    child: Image.asset(
-                                                        Assets.linkedin)),
-                                              ),
-                                              FlatButton.icon(
-                                                label: Text(''),
-                                                onPressed: () => html.window
-                                                    .open(
-                                                        Constants
-                                                            .PROFILE_TWITTER,
-                                                        'FeolixaHope'),
-                                                icon: Container(
-                                                    width: McGyver.rsDoubleW(
-                                                        context, 8),
-                                                    height: McGyver.rsDoubleH(
-                                                        context, 4),
-                                                    child: Image.asset(
-                                                        Assets.twitter)),
-                                              )
-                                            ],
-                                          ),
-                                        ),
+                                                McGyver.rsDoubleH(context, 4),
+                                            child: Image.asset(
+                                                Assets.medium_light)),
                                       ),
-                                    )
-                                  ],
+                                      FlatButton.icon(
+                                        label: Text('Github'),
+                                        onPressed: () => html.window.open(
+                                            Constants.PROFILE_GITHUB,
+                                            'Phelickz'),
+                                        icon: Container(
+                                            width:
+                                                McGyver.rsDoubleW(context, 4),
+                                            height:
+                                                McGyver.rsDoubleH(context, 4),
+                                            child: Image.asset(Assets.github)),
+                                      ),
+                                      FlatButton.icon(
+                                        label: Text(''),
+                                        onPressed: () => html.window.open(
+                                            Constants.PROFILE_LINKEDIN,
+                                            'Felix-awa'),
+                                        icon: Container(
+                                            width:
+                                                McGyver.rsDoubleW(context, 4),
+                                            height:
+                                                McGyver.rsDoubleH(context, 4),
+                                            child:
+                                                Image.asset(Assets.linkedin)),
+                                      ),
+                                      FlatButton.icon(
+                                        label: Text(''),
+                                        onPressed: () => html.window.open(
+                                            Constants.PROFILE_TWITTER,
+                                            'FeolixaHope'),
+                                        icon: Container(
+                                          width: McGyver.rsDoubleW(context, 4),
+                                          height: McGyver.rsDoubleH(context, 4),
+                                          child: Image.asset(Assets.twitter),
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
+                            )
                           ],
                         ),
-                      ))
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),

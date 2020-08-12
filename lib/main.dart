@@ -21,6 +21,7 @@ class MainApplication extends StatelessWidget {
     return MultiProvider(
       providers: ProviderInjector.providers,
       child: MaterialApp(
+        title: 'Awa Felix | Software Developer',
         onGenerateRoute: generateRoute,
         navigatorKey: navigatorKey,
         routes: {
