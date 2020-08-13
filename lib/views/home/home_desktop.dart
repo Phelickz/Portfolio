@@ -35,6 +35,7 @@ class _HomeDesktop extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: backgroundBlack,
       floatingActionButton: Visibility(
         visible: viewModel.menuActive,
         child: FloatingActionButton(
@@ -387,14 +388,25 @@ class _HomeDesktop extends StatelessWidget {
                             FadeIn(
                               delay: 4,
                               child: Container(
-                                  height: McGyver.rsDoubleH(context, 50),
-                                  child: Image.asset('me.png')),
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage('splash.gif')),
+                                    shape: BoxShape.circle,
+                                    // border: Border.all(
+                                    //   width: 0,
+                                    //   color: backgroundRed,
+                                    // ),
+                                    color: backgroundRed),
+                                height: McGyver.rsDoubleH(context, 50),
+                                width: McGyver.rsDoubleH(context, 50),
+                              ),
                             )
                           ],
                         ),
                       ),
                     ),
                   ),
+                  PortServices(),
                   Container(
                     key: dataKey3,
                     width: width,

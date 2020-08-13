@@ -17,6 +17,7 @@ import 'package:portfolio/core/services/utils.dart';
 import 'package:portfolio/theme/colors.dart';
 import 'package:portfolio/views/about_page/about_page_view.dart';
 import 'package:portfolio/widgets/menu/menu_widget.dart';
+import 'package:portfolio/widgets/services/services.dart';
 import 'package:portfolio/widgets/slider/slider.dart';
 import 'package:provider_architecture/provider_architecture.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -39,7 +40,7 @@ class HomeView extends StatelessWidget {
         viewModel: viewModel,
         onModelReady: (viewModel) {
           // Do something once your viewModel is initialized
-          Timer(Duration(seconds: 8), () {
+          Timer(Duration(seconds: 2), () {
             viewModel.setSplash(false);
           });
         },
