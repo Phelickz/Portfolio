@@ -5,16 +5,16 @@ import 'package:portfolio/core/services/res.dart';
 import 'package:portfolio/core/services/res2.dart';
 import 'package:portfolio/theme/colors.dart';
 
-class PortServices extends StatefulWidget {
+class ServicesMobile extends StatefulWidget {
   final bool tab;
 
-  const PortServices({Key key, this.tab = false}) : super(key: key);
+  const ServicesMobile({Key key, this.tab = false}) : super(key: key);
 
   @override
-  _PortServicesState createState() => _PortServicesState();
+  _ServicesMobileState createState() => _ServicesMobileState();
 }
 
-class _PortServicesState extends State<PortServices>
+class _ServicesMobileState extends State<ServicesMobile>
     with TickerProviderStateMixin {
   AnimationController controller;
   Animation<double> animation;
@@ -22,7 +22,7 @@ class _PortServicesState extends State<PortServices>
 
   final DecorationTween decorationTween = DecorationTween(
     begin: BoxDecoration(
-        borderRadius: BorderRadius.circular(70),
+        borderRadius: BorderRadius.circular(80),
         color: Color(0xff000000),
         border: Border.all(width: 3, color: Color(0xffBC8181))),
     end: BoxDecoration(
@@ -68,7 +68,7 @@ class _PortServicesState extends State<PortServices>
     double height = MediaQuery.of(context).size.width;
     return Container(
         width: width,
-        height: widget.tab ? McGyver.rsDoubleH(context, 50): McGyver.rsDoubleH(context, 90),
+        height: McGyver.rsDoubleH(context, 180),
         color: Color(0xff0E0106),
         child: Padding(
           padding: EdgeInsets.only(top: McGyver.rsDoubleW(context, 4)),
@@ -80,7 +80,7 @@ class _PortServicesState extends State<PortServices>
                   'Services',
                   style: GoogleFonts.montserrat(
                     color: headerTextColor,
-                    fontSize: SizeConfig().textSize(context, 2.4),
+                    fontSize: SizeConfig().textSize(context, 3),
                   ),
                 ),
                 SizedBox(
@@ -97,7 +97,7 @@ class _PortServicesState extends State<PortServices>
                       style: GoogleFonts.montserrat(
                         color: headerTextColor,
                         fontWeight: FontWeight.w300,
-                        fontSize: SizeConfig().textSize(context, 1.4),
+                        fontSize: SizeConfig().textSize(context, 1.8),
                       ),
                     ),
                   ),
@@ -107,13 +107,14 @@ class _PortServicesState extends State<PortServices>
                 ),
                 Expanded(
                   child: Wrap(
-                    spacing: McGyver.rsDoubleW(context, 1.3),
+                    spacing: McGyver.rsDoubleW(context, 3),
+                    runSpacing: McGyver.rsDoubleW(context, 5),
                     children: [
                       FadeTransition(
                         opacity: animation,
                         child: Container(
-                          width:widget.tab ? McGyver.rsDoubleW(context, 23): McGyver.rsDoubleW(context, 22),
-                          height: widget.tab ? McGyver.rsDoubleW(context, 29): McGyver.rsDoubleW(context, 22),
+                          width: McGyver.rsDoubleW(context, 50),
+                          height: McGyver.rsDoubleW(context, 50),
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: backgroundBlack,
@@ -149,7 +150,7 @@ class _PortServicesState extends State<PortServices>
                                       color: headerTextColor,
                                       fontWeight: FontWeight.w300,
                                       fontSize:
-                                          SizeConfig().textSize(context, 1.4),
+                                          SizeConfig().textSize(context, 1.8),
                                     ),
                                   ),
                                 )
@@ -162,8 +163,8 @@ class _PortServicesState extends State<PortServices>
                         position: DecorationPosition.background,
                         decoration: decorationTween.animate(_controller),
                         child: Container(
-                          width: McGyver.rsDoubleW(context, 22),
-                          height: widget.tab ? McGyver.rsDoubleW(context, 28): McGyver.rsDoubleW(context, 22),
+                          width: McGyver.rsDoubleW(context, 50),
+                          height: McGyver.rsDoubleW(context, 50),
                           child: Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal: McGyver.rsDoubleW(context, 3)),
@@ -195,7 +196,7 @@ class _PortServicesState extends State<PortServices>
                                       color: headerTextColor,
                                       fontWeight: FontWeight.w300,
                                       fontSize:
-                                          SizeConfig().textSize(context, 1.4),
+                                          SizeConfig().textSize(context, 1.8),
                                     ),
                                   ),
                                 )
@@ -207,8 +208,8 @@ class _PortServicesState extends State<PortServices>
                       FadeTransition(
                         opacity: animation,
                         child: Container(
-                          width: widget.tab ? McGyver.rsDoubleW(context, 24): McGyver.rsDoubleW(context, 22),
-                          height: widget.tab ? McGyver.rsDoubleW(context, 29): McGyver.rsDoubleW(context, 22),
+                          width: McGyver.rsDoubleW(context, 50),
+                          height: McGyver.rsDoubleW(context, 50),
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: Color(0xff000000),
@@ -245,7 +246,7 @@ class _PortServicesState extends State<PortServices>
                                       color: headerTextColor,
                                       fontWeight: FontWeight.w300,
                                       fontSize:
-                                          SizeConfig().textSize(context, 1.4),
+                                          SizeConfig().textSize(context, 1.8),
                                     ),
                                   ),
                                 )
@@ -258,8 +259,8 @@ class _PortServicesState extends State<PortServices>
                         position: DecorationPosition.background,
                         decoration: decorationTween.animate(_controller),
                         child: Container(
-                          width: McGyver.rsDoubleW(context, 22),
-                          height: widget.tab ? McGyver.rsDoubleW(context, 28): McGyver.rsDoubleW(context, 22),
+                         width: McGyver.rsDoubleW(context, 50),
+                          height: McGyver.rsDoubleW(context, 50),
                           child: Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal: McGyver.rsDoubleW(context, 3)),
@@ -291,7 +292,7 @@ class _PortServicesState extends State<PortServices>
                                       color: headerTextColor,
                                       fontWeight: FontWeight.w300,
                                       fontSize:
-                                          SizeConfig().textSize(context, 1.4),
+                                          SizeConfig().textSize(context, 1.8),
                                     ),
                                   ),
                                 )

@@ -4,31 +4,11 @@ class _HomeTablet extends StatelessWidget {
   final HomeViewModel viewModel;
 
   _HomeTablet(this.viewModel);
- final dataKey = new GlobalKey();
+  final dataKey = new GlobalKey();
   final dataKey2 = new GlobalKey();
   final dataKey3 = new GlobalKey();
+  final serviceKey = new GlobalKey();
 
-  final Uri _emailLaunchUri = Uri(
-      scheme: 'mailto',
-      path: 'felixhope30@gmail.com',
-      queryParameters: {'subject': 'Looking to Hire you'});
-
-  Future<void> _launchInBrowser(String url) async {
-    print('tap');
-    bool launchw = await canLaunch(_emailLaunchUri.toString());
-    print(launchw);
-    if (launchw) {
-      print('tap');
-      await launch(
-        url,
-        forceSafariVC: false,
-        forceWebView: false,
-        headers: <String, String>{'my_header_key': 'my_header_value'},
-      );
-    } else {
-      print('Could not launch $url');
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -100,6 +80,29 @@ class _HomeTablet extends StatelessWidget {
                                   onPressed: () {},
                                   child: Text(
                                     'Home',
+                                    style: GoogleFonts.openSans(
+                                      color: headerTextColor,
+                                      fontSize:
+                                          SizeConfig().textSize(context, 1.8),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: McGyver.rsDoubleW(context, 1)),
+                                RaisedButton(
+                                  elevation: 0,
+                                  color: Colors.transparent,
+                                  hoverColor: backgroundRed,
+                                  hoverElevation: 15,
+                                  onPressed: () {
+                                    Scrollable.ensureVisible(
+                                            serviceKey.currentContext,
+                                            duration: Duration(seconds: 1),
+                                            curve: Curves.easeIn)
+                                        .then(
+                                            (value) => viewModel.setBool(true));
+                                  },
+                                  child: Text(
+                                    'Services',
                                     style: GoogleFonts.openSans(
                                       color: headerTextColor,
                                       fontSize:
@@ -272,13 +275,9 @@ class _HomeTablet extends StatelessWidget {
                                                       context, 12),
                                                   height: McGyver.rsDoubleH(
                                                       context, 8),
-                                                  onPressed: () {
-                                                    print('tap');
-                                                    _launchInBrowser(
-                                                        'https://www.cylog.org/headers/');
-                                                    launch(_emailLaunchUri
-                                                        .toString());
-                                                  },
+                                                  onPressed: () => html.window
+                                                      .open(Constants.RESUME,
+                                                          'Felix-awa'),
                                                   shape: RoundedRectangleBorder(
                                                     side: BorderSide(
                                                       width: 4,
@@ -286,8 +285,9 @@ class _HomeTablet extends StatelessWidget {
                                                     ),
                                                   ),
                                                   child: Text(
-                                                    'Contact ME',
-                                                    style: GoogleFonts.lobster(
+                                                    'View Resume',
+                                                    style:
+                                                        GoogleFonts.montserrat(
                                                       color: headerTextColor,
                                                       fontSize: SizeConfig()
                                                           .textSize(
@@ -306,17 +306,7 @@ class _HomeTablet extends StatelessWidget {
                                   Padding(
                                     padding:
                                         EdgeInsets.symmetric(horizontal: 8.0),
-                                    child: FadeIn(
-                                      delay: 10,
-                                      child: Container(
-                                        width: McGyver.rsDoubleW(context, 40),
-                                        height: McGyver.rsDoubleH(context, 60),
-                                        // color: Colors.red,
-                                        child: Image.asset(
-                                          'circles.png',
-                                        ),
-                                      ),
-                                    ),
+                                    child: FadeIn(delay: 10, child: Circles()),
                                   ),
                                 ],
                               ),
@@ -406,7 +396,10 @@ class _HomeTablet extends StatelessWidget {
                       ),
                     ),
                   ),
-                  PortServices(tab: true),
+                  PortServices(
+                    key: serviceKey,
+                    tab: true,
+                  ),
                   Container(
                     key: dataKey3,
                     width: width,
@@ -441,14 +434,23 @@ class _HomeTablet extends StatelessWidget {
                                     horizontal: McGyver.rsDoubleW(context, 10),
                                     vertical: McGyver.rsDoubleW(context, 3),
                                   ),
-                                  child: CarouselWithIndicatorDemo(
-                                    
-                                  )),
+                                  child: CarouselWithIndicatorDemo()),
+                            ),
+                            Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                'Get in Touch',
+                                style: GoogleFonts.montserrat(
+                                  color: headerTextColor,
+                                  fontSize: SizeConfig().textSize(context, 2),
+                                ),
+                              ),
                             ),
                             Align(
                               alignment: Alignment.bottomCenter,
                               child: Padding(
                                 padding: EdgeInsets.only(
+                                    top: McGyver.rsDoubleH(context, 1),
                                     bottom: McGyver.rsDoubleH(context, 3)),
                                 child: FadeIn(
                                   delay: 13,
