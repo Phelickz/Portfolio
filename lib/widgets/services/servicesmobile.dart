@@ -110,14 +110,63 @@ class _ServicesMobileState extends State<ServicesMobile>
                     spacing: McGyver.rsDoubleW(context, 3),
                     runSpacing: McGyver.rsDoubleH(context, 2),
                     children: [
+                      // FadeTransition(
+                      //   opacity: animation,
+                      //   child: Container(
+                      //     width: McGyver.rsDoubleW(context, 50),
+                      //     height: McGyver.rsDoubleH(context, 50),
+                      //     decoration: BoxDecoration(
+                      //         shape: BoxShape.circle,
+                      //         color: backgroundBlack,
+                      //         border: Border.all(
+                      //             width: 3, color: Color(0xff652323))),
+                      //     child: Padding(
+                      //       padding: EdgeInsets.symmetric(
+                      //           horizontal: McGyver.rsDoubleW(context, 3)),
+                      //       child: Column(
+                      //         crossAxisAlignment: CrossAxisAlignment.center,
+                      //         mainAxisAlignment: MainAxisAlignment.center,
+                      //         children: [
+                      //           CircleAvatar(
+                      //             backgroundColor: Colors.transparent,
+                      //             backgroundImage: AssetImage('smartphone.png'),
+                      //           ),
+                      //           Text(
+                      //             'Mobile',
+                      //             style: GoogleFonts.montserrat(
+                      //               fontWeight: FontWeight.w500,
+                      //               color: headerTextColor,
+                      //               fontSize:
+                      //                   SizeConfig().textSize(context, 2.4),
+                      //             ),
+                      //           ),
+                      //           SizedBox(height: McGyver.rsDoubleH(context, 1)),
+                      //           Opacity(
+                      //             opacity: 0.7,
+                      //             child: Text(
+                      //               'Get android and ios applications for your ideas. 100% real and clean',
+                      //               textAlign: TextAlign.center,
+                      //               style: GoogleFonts.montserrat(
+                      //                 color: headerTextColor,
+                      //                 fontWeight: FontWeight.w300,
+                      //                 fontSize:
+                      //                     SizeConfig().textSize(context, 1.8),
+                      //               ),
+                      //             ),
+                      //           )
+                      //         ],
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                       FadeTransition(
                         opacity: animation,
                         child: Container(
                           width: McGyver.rsDoubleW(context, 50),
-                          height: McGyver.rsDoubleH(context, 50),
+                          height: McGyver.rsDoubleW(context, 50),
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: backgroundBlack,
+                              color: Color(0xff000000),
                               border: Border.all(
                                   width: 3, color: Color(0xff652323))),
                           child: Padding(
@@ -129,7 +178,8 @@ class _ServicesMobileState extends State<ServicesMobile>
                               children: [
                                 CircleAvatar(
                                   backgroundColor: Colors.transparent,
-                                  backgroundImage: AssetImage('smartphone.png'),
+                                  child: Image.asset('smartphone.png',
+                                      fit: BoxFit.contain),
                                 ),
                                 Text(
                                   'Mobile',
