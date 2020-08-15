@@ -77,14 +77,14 @@ class _HomeMobile extends StatelessWidget {
                           child: Container(
                             width: width,
                             // color: Colors.white,
-                            height: McGyver.rsDoubleH(context, 76),
+                            height: McGyver.rsDoubleH(context, 80),
                             child: Center(
                               child: Row(
                                 children: [
                                   Expanded(
                                     child: Container(
                                       width: McGyver.rsDoubleW(context, 40),
-                                      height: McGyver.rsDoubleH(context, 60),
+                                      height: McGyver.rsDoubleH(context, 76),
                                       child: Padding(
                                         padding: EdgeInsets.only(
                                           left: McGyver.rsDoubleW(context, 4),

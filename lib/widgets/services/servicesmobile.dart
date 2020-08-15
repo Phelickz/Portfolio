@@ -68,7 +68,7 @@ class _ServicesMobileState extends State<ServicesMobile>
     double height = MediaQuery.of(context).size.width;
     return Container(
         width: width,
-        height: McGyver.rsDoubleH(context, 180),
+        height: McGyver.rsDoubleW(context, 50) * 5.5,
         color: Color(0xff0E0106),
         child: Padding(
           padding: EdgeInsets.only(top: McGyver.rsDoubleW(context, 4)),
@@ -114,7 +114,7 @@ class _ServicesMobileState extends State<ServicesMobile>
                         opacity: animation,
                         child: Container(
                           width: McGyver.rsDoubleW(context, 50),
-                          height: McGyver.rsDoubleW(context, 50),
+                          height: McGyver.rsDoubleH(context, 50),
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: backgroundBlack,

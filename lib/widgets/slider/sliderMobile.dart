@@ -29,203 +29,209 @@ class _CarouselWithIndicatorState extends State<SliderMobile> {
         decoration: BoxDecoration(
             // color: Color(0xff1C1A1A),
             border: Border.all(width: 3, color: Color(0xff2f2727))),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(right: 8.0, top: 8.0),
-              child: Align(
-                alignment: Alignment.topRight,
-                child: FlatButton.icon(
-                  label: Text(''),
-                  onPressed: () =>
-                      html.window.open(Constants.VIDEO, 'Phelickz'),
-                  icon: Container(
-                      width: McGyver.rsDoubleW(context, 4),
-                      height: McGyver.rsDoubleH(context, 4),
-                      child: Image.asset(Assets.github)),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(right: 8.0, top: 8.0),
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: FlatButton.icon(
+                    label: Text(''),
+                    onPressed: () =>
+                        html.window.open(Constants.VIDEO, 'Phelickz'),
+                    icon: Container(
+                        width: McGyver.rsDoubleW(context, 4),
+                        height: McGyver.rsDoubleH(context, 4),
+                        child: Image.asset(Assets.github)),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: McGyver.rsDoubleH(context, 4)),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: McGyver.rsDoubleW(context, 3),
-              ),
-              child: Text(
-                'Video Chat App',
-                style: GoogleFonts.montserrat(
-                    color: Color(0xffc4c4c4),
-                    fontWeight: FontWeight.bold,
-                    fontSize: SizeConfig().textSize(context, 2.2)),
-              ),
-            ),
-            SizedBox(height: McGyver.rsDoubleH(context, 3)),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: McGyver.rsDoubleW(context, 3),
-              ),
-              child: Text(
-                'A mobile application for video calling and chatting with people',
-                style: GoogleFonts.montserrat(
-                    color: Color(0xffc4c4c4),
-                    fontWeight: FontWeight.w400,
-                    fontSize: SizeConfig().textSize(context, 1.8)),
-              ),
-            ),
-            SizedBox(height: McGyver.rsDoubleH(context, 6)),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: McGyver.rsDoubleW(context, 3),
-              ),
-              child: Align(
-                alignment: Alignment.bottomLeft,
+              SizedBox(height: McGyver.rsDoubleH(context, 4)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: McGyver.rsDoubleW(context, 3),
+                ),
                 child: Text(
-                  'Tools: Flutter/Dart',
+                  'Video Chat App',
+                  style: GoogleFonts.montserrat(
+                      color: Color(0xffc4c4c4),
+                      fontWeight: FontWeight.bold,
+                      fontSize: SizeConfig().textSize(context, 2.2)),
+                ),
+              ),
+              SizedBox(height: McGyver.rsDoubleH(context, 3)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: McGyver.rsDoubleW(context, 3),
+                ),
+                child: Text(
+                  'A mobile application for video calling and chatting with people',
                   style: GoogleFonts.montserrat(
                       color: Color(0xffc4c4c4),
                       fontWeight: FontWeight.w400,
                       fontSize: SizeConfig().textSize(context, 1.8)),
                 ),
               ),
-            )
-          ],
+              SizedBox(height: McGyver.rsDoubleH(context, 3)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: McGyver.rsDoubleW(context, 3),
+                ),
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    'Tools: Flutter/Dart',
+                    style: GoogleFonts.montserrat(
+                        color: Color(0xffc4c4c4),
+                        fontWeight: FontWeight.w400,
+                        fontSize: SizeConfig().textSize(context, 1.8)),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
       Container(
         width: McGyver.rsDoubleW(context, 50),
         height: McGyver.rsDoubleH(context, 31),
-        decoration: BoxDecoration(
-            border: Border.all(width: 3, color: backgroundRed)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(right: 8.0, top: 8.0),
-              child: Align(
-                alignment: Alignment.topRight,
-                child: FlatButton.icon(
-                  label: Text(''),
-                  onPressed: () =>
-                      html.window.open(Constants.QUICK_THINK, 'Phelickz'),
-                  icon: Container(
-                      width: McGyver.rsDoubleW(context, 4),
-                      height: McGyver.rsDoubleH(context, 4),
-                      child: Image.asset(Assets.github)),
+        decoration:
+            BoxDecoration(border: Border.all(width: 3, color: backgroundRed)),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(right: 8.0, top: 8.0),
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: FlatButton.icon(
+                    label: Text(''),
+                    onPressed: () =>
+                        html.window.open(Constants.QUICK_THINK, 'Phelickz'),
+                    icon: Container(
+                        width: McGyver.rsDoubleW(context, 4),
+                        height: McGyver.rsDoubleH(context, 4),
+                        child: Image.asset(Assets.github)),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: McGyver.rsDoubleH(context, 4)),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: McGyver.rsDoubleW(context, 3),
-              ),
-              child: Text(
-                'QuickThink',
-                style: GoogleFonts.montserrat(
-                    color: Color(0xffc4c4c4),
-                    fontWeight: FontWeight.bold,
-                    fontSize: SizeConfig().textSize(context, 2.2)),
-              ),
-            ),
-            SizedBox(height: McGyver.rsDoubleH(context, 3)),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: McGyver.rsDoubleW(context, 3),
-              ),
-              child: Text(
-                'An online game platform where you can take quizzes and compete with friends',
-                style: GoogleFonts.montserrat(
-                    color: Color(0xffc4c4c4),
-                    fontWeight: FontWeight.w400,
-                    fontSize: SizeConfig().textSize(context, 1.8)),
-              ),
-            ),
-            SizedBox(height: McGyver.rsDoubleH(context, 3)),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: McGyver.rsDoubleW(context, 3),
-              ),
-              child: Align(
-                alignment: Alignment.bottomLeft,
+              SizedBox(height: McGyver.rsDoubleH(context, 4)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: McGyver.rsDoubleW(context, 3),
+                ),
                 child: Text(
-                  'Tools: Flutter/Dart',
+                  'QuickThink',
+                  style: GoogleFonts.montserrat(
+                      color: Color(0xffc4c4c4),
+                      fontWeight: FontWeight.bold,
+                      fontSize: SizeConfig().textSize(context, 2.2)),
+                ),
+              ),
+              SizedBox(height: McGyver.rsDoubleH(context, 3)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: McGyver.rsDoubleW(context, 3),
+                ),
+                child: Text(
+                  'An online game platform where you can take quizzes and compete with friends',
                   style: GoogleFonts.montserrat(
                       color: Color(0xffc4c4c4),
                       fontWeight: FontWeight.w400,
                       fontSize: SizeConfig().textSize(context, 1.8)),
                 ),
               ),
-            )
-          ],
+              SizedBox(height: McGyver.rsDoubleH(context, 3)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: McGyver.rsDoubleW(context, 3),
+                ),
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    'Tools: Flutter/Dart',
+                    style: GoogleFonts.montserrat(
+                        color: Color(0xffc4c4c4),
+                        fontWeight: FontWeight.w400,
+                        fontSize: SizeConfig().textSize(context, 1.8)),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
       Container(
         width: McGyver.rsDoubleW(context, 50),
         height: McGyver.rsDoubleH(context, 36),
-        decoration: BoxDecoration(
-            border: Border.all(width: 3, color: headerTextColor)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(right: 8.0, top: 8.0),
-              child: Align(
-                alignment: Alignment.topRight,
-                child: FlatButton.icon(
-                  label: Text(''),
-                  onPressed: () =>
-                      html.window.open(Constants.PROFILE_GITHUB, 'Phelickz'),
-                  icon: Container(
-                      width: McGyver.rsDoubleW(context, 4),
-                      height: McGyver.rsDoubleH(context, 4),
-                      child: Image.asset(Assets.github)),
+        decoration:
+            BoxDecoration(border: Border.all(width: 3, color: headerTextColor)),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(right: 8.0, top: 8.0),
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: FlatButton.icon(
+                    label: Text(''),
+                    onPressed: () =>
+                        html.window.open(Constants.PROFILE_GITHUB, 'Phelickz'),
+                    icon: Container(
+                        width: McGyver.rsDoubleW(context, 4),
+                        height: McGyver.rsDoubleH(context, 4),
+                        child: Image.asset(Assets.github)),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: McGyver.rsDoubleH(context, 4)),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: McGyver.rsDoubleW(context, 3),
-              ),
-              child: Text(
-                'Asthma Management',
-                style: GoogleFonts.montserrat(
-                    color: Color(0xffc4c4c4),
-                    fontWeight: FontWeight.bold,
-                    fontSize: SizeConfig().textSize(context, 2.2)),
-              ),
-            ),
-            SizedBox(height: McGyver.rsDoubleH(context, 3)),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: McGyver.rsDoubleW(context, 3),
-              ),
-              child: Text(
-                'A mobile application for asthmatic people to manage their health properly',
-                style: GoogleFonts.montserrat(
-                    color: Color(0xffc4c4c4),
-                    fontWeight: FontWeight.w400,
-                    fontSize: SizeConfig().textSize(context, 1.8)),
-              ),
-            ),
-            SizedBox(height: McGyver.rsDoubleH(context, 3)),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: McGyver.rsDoubleW(context, 3),
-              ),
-              child: Align(
-                alignment: Alignment.bottomLeft,
+              SizedBox(height: McGyver.rsDoubleH(context, 4)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: McGyver.rsDoubleW(context, 3),
+                ),
                 child: Text(
-                  'Tools: Flutter/Dart',
+                  'Asthma Management',
+                  style: GoogleFonts.montserrat(
+                      color: Color(0xffc4c4c4),
+                      fontWeight: FontWeight.bold,
+                      fontSize: SizeConfig().textSize(context, 2.2)),
+                ),
+              ),
+              SizedBox(height: McGyver.rsDoubleH(context, 3)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: McGyver.rsDoubleW(context, 3),
+                ),
+                child: Text(
+                  'A mobile application for asthmatic people to manage their health properly',
                   style: GoogleFonts.montserrat(
                       color: Color(0xffc4c4c4),
                       fontWeight: FontWeight.w400,
                       fontSize: SizeConfig().textSize(context, 1.8)),
                 ),
               ),
-            )
-          ],
+              SizedBox(height: McGyver.rsDoubleH(context, 3)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: McGyver.rsDoubleW(context, 3),
+                ),
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    'Tools: Flutter/Dart',
+                    style: GoogleFonts.montserrat(
+                        color: Color(0xffc4c4c4),
+                        fontWeight: FontWeight.w400,
+                        fontSize: SizeConfig().textSize(context, 1.8)),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
       Container(
@@ -233,67 +239,69 @@ class _CarouselWithIndicatorState extends State<SliderMobile> {
         height: McGyver.rsDoubleH(context, 36),
         decoration: BoxDecoration(
             border: Border.all(width: 3, color: Color(0xff150D10))),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(right: 8.0, top: 8.0),
-              child: Align(
-                alignment: Alignment.topRight,
-                child: FlatButton.icon(
-                  label: Text(''),
-                  onPressed: () =>
-                      html.window.open(Constants.LOGISTIC, 'Phelickz'),
-                  icon: Container(
-                      width: McGyver.rsDoubleW(context, 4),
-                      height: McGyver.rsDoubleH(context, 4),
-                      child: Image.asset(Assets.github)),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(right: 8.0, top: 8.0),
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: FlatButton.icon(
+                    label: Text(''),
+                    onPressed: () =>
+                        html.window.open(Constants.LOGISTIC, 'Phelickz'),
+                    icon: Container(
+                        width: McGyver.rsDoubleW(context, 4),
+                        height: McGyver.rsDoubleH(context, 4),
+                        child: Image.asset(Assets.github)),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: McGyver.rsDoubleH(context, 4)),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: McGyver.rsDoubleW(context, 3),
-              ),
-              child: Text(
-                'Logistic',
-                style: GoogleFonts.montserrat(
-                    color: Color(0xffc4c4c4),
-                    fontWeight: FontWeight.bold,
-                    fontSize: SizeConfig().textSize(context, 2.2)),
-              ),
-            ),
-            SizedBox(height: McGyver.rsDoubleH(context, 3)),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: McGyver.rsDoubleW(context, 3),
-              ),
-              child: Text(
-                'A logistic application for managing deliveries',
-                style: GoogleFonts.montserrat(
-                    color: Color(0xffc4c4c4),
-                    fontWeight: FontWeight.w400,
-                    fontSize: SizeConfig().textSize(context, 1.8)),
-              ),
-            ),
-            SizedBox(height: McGyver.rsDoubleH(context, 3)),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: McGyver.rsDoubleW(context, 3),
-              ),
-              child: Align(
-                alignment: Alignment.bottomLeft,
+              SizedBox(height: McGyver.rsDoubleH(context, 4)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: McGyver.rsDoubleW(context, 3),
+                ),
                 child: Text(
-                  'Tools: Flutter/Dart',
+                  'Logistic',
+                  style: GoogleFonts.montserrat(
+                      color: Color(0xffc4c4c4),
+                      fontWeight: FontWeight.bold,
+                      fontSize: SizeConfig().textSize(context, 2.2)),
+                ),
+              ),
+              SizedBox(height: McGyver.rsDoubleH(context, 3)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: McGyver.rsDoubleW(context, 3),
+                ),
+                child: Text(
+                  'A logistic application for managing deliveries',
                   style: GoogleFonts.montserrat(
                       color: Color(0xffc4c4c4),
                       fontWeight: FontWeight.w400,
                       fontSize: SizeConfig().textSize(context, 1.8)),
                 ),
               ),
-            )
-          ],
+              SizedBox(height: McGyver.rsDoubleH(context, 3)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: McGyver.rsDoubleW(context, 3),
+                ),
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    'Tools: Flutter/Dart',
+                    style: GoogleFonts.montserrat(
+                        color: Color(0xffc4c4c4),
+                        fontWeight: FontWeight.w400,
+                        fontSize: SizeConfig().textSize(context, 1.8)),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       )
     ];
