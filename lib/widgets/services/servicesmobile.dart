@@ -35,11 +35,11 @@ class _ServicesMobileState extends State<ServicesMobile>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 4),
+      duration: const Duration(seconds: 5),
     );
 
     controller = AnimationController(
-        duration: const Duration(milliseconds: 4000), vsync: this);
+        duration: const Duration(milliseconds: 5000), vsync: this);
     animation = CurvedAnimation(parent: controller, curve: Curves.easeIn);
 
     animation.addStatusListener((status) {
@@ -68,7 +68,7 @@ class _ServicesMobileState extends State<ServicesMobile>
     double height = MediaQuery.of(context).size.width;
     return Container(
         width: width,
-        height: McGyver.rsDoubleW(context, 50) * 5.5,
+        height: McGyver.rsDoubleW(context, 50) * 5.7,
         color: Color(0xff0E0106),
         child: Padding(
           padding: EdgeInsets.only(top: McGyver.rsDoubleW(context, 4)),
@@ -103,12 +103,12 @@ class _ServicesMobileState extends State<ServicesMobile>
                   ),
                 ),
                 SizedBox(
-                  height: McGyver.rsDoubleW(context, 4),
+                  height: McGyver.rsDoubleH(context, 2),
                 ),
                 Expanded(
                   child: Wrap(
                     spacing: McGyver.rsDoubleW(context, 3),
-                    runSpacing: McGyver.rsDoubleW(context, 5),
+                    runSpacing: McGyver.rsDoubleH(context, 2),
                     children: [
                       FadeTransition(
                         opacity: animation,
