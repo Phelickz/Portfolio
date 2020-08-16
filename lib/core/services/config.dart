@@ -7,5 +7,5 @@ class Constants {
   static const QUICK_THINK = 'https://quickthink.netlify.app/';
   static const LOGISTIC = 'https://github.com/Phelickz/logisticsApp';
   static const VIDEO = 'https://github.com/Phelickz/Video_Chat_App';
-  static const RESUME = 'https://drive.google.com/file/d/1a1wuXa-9CZj1kWxcJ14wQwqqnV93jxTS/view?usp=sharing';
+  static const RESUME = 'https://drive.google.com/file/d/1g5ddNhvRA69mins6ZOOkWh3SDyw-6KpQ/view?usp=sharing';
 }

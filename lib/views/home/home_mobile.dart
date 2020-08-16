@@ -225,12 +225,12 @@ class _HomeMobile extends StatelessWidget {
                   Container(
                     key: dataKey,
                     width: width,
-                    height: McGyver.rsDoubleH(context, 120),
+                    height: McGyver.rsDoubleH(context, 130),
                     color: backgroundRed,
                     child: Padding(
                       padding: EdgeInsets.symmetric(
                         horizontal: McGyver.rsDoubleW(context, 4),
-                        vertical: McGyver.rsDoubleH(context, 6),
+                        vertical: McGyver.rsDoubleH(context, 4),
                       ),
                       child: SingleChildScrollView(
                         child: Column(

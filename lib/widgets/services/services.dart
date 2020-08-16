@@ -189,7 +189,7 @@ class _PortServicesState extends State<PortServices>
                                 Opacity(
                                   opacity: 0.7,
                                   child: Text(
-                                    'Get highly performant web and desktop applications with a perfect lighthouse score',
+                                    'Get highly performing web and desktop applications with a perfect lighthouse score',
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.montserrat(
                                       color: headerTextColor,
